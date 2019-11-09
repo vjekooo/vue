@@ -1,5 +1,6 @@
 
 import express from 'express'
+import cors from 'cors'
 import { validate } from './validate'
 
 interface Messages {
@@ -8,8 +9,9 @@ interface Messages {
 }
 
 (async () => {
-
     const app = express()
+
+    app.use(cors())
     app.use(express.json())
 
     app.get('/', (_req, res) => {
