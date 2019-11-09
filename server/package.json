@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon ts-node src/indes.ts"
+    "start": "nodemon --exec ts-node src/index.ts"
   },
   "author": "Vjeko",
   "license": "ISC",
@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.2",
+    "@types/node": "^12.12.7",
     "nodemon": "^1.19.4",
     "ts-node": "^8.4.1",
     "typescript": "^3.7.2"
