@@ -3,11 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import { validate } from './validate'
 
-interface Messages {
-    id: number;
-    email: string;
-    message: string;
-}
+import { Message } from './models'
 
 (async () => {
     const app = express()
@@ -15,8 +11,7 @@ interface Messages {
     app.use(cors())
     app.use(express.json())
 
-    
-    let messages: Messages[] = []
+    let messages: Message[] = []
     
     app.get('/api/contacts', (_req, res) => {
         res.send(messages)

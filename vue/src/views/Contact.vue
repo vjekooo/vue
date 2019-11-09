@@ -25,6 +25,8 @@
 	import SendContact from '../components/SendContact.vue'
 	import Messages from '../components/Messages.vue'
 
+	import { api } from '../constants.js'
+
 	export default {
 		name: 'Contact',
 		components: {
@@ -39,7 +41,7 @@
 		},
 		methods: {
 			async sendContact(contact) {
-				const api = 'http://localhost:4000/api/contact'
+				const endpoint = `${api}/contact`
 
 				const options = {
                     method: 'POST',
@@ -51,7 +53,7 @@
                 };
 
 				try {
-					const response = await fetch(api, options)
+					const response = await fetch(endpoint, options)
 
 					const data = await response.json()
 
@@ -66,10 +68,10 @@
 				}
 			},
 			async fetchMessages() {
-				const api = 'http://localhost:4000/api/contacts'
+				const endpoint = `${api}/contacts`
 
 				try {
-					const response = await fetch(api)
+					const response = await fetch(endpoint)
 
 					const data = await response.json()
 
