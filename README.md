@@ -15,7 +15,7 @@
 ## Startup
 
 ## Backend
-> blockquote yarn serve
+> yarn serve
 
 ## Frontend
-> blockquote yarn start
+> yarn start
