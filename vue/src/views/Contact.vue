@@ -9,8 +9,10 @@
 			<SendContact
 				v-on:send-contact="sendContact"
 			/>
-			<div>
-				{{ responseMessage }}
+			<div class="response-message">
+				<p>
+					{{ responseMessage }}
+				</p>	
 			</div>
 		</div>
 		<div class="messages">
@@ -53,7 +55,9 @@
 
 					const data = await response.json()
 
-					this.responseMessage = data.message || data.error
+					this.responseMessage = data.success || data.error
+
+					if (data) this.handleResponseMessage()
 
 					if (!data.error) this.fetchMessages()
 
@@ -76,6 +80,11 @@
 				} catch (error) {
 					console.log(error)
 				}
+			},
+			handleResponseMessage() {
+				setTimeout(() => {
+					this.responseMessage = ''
+				}, 4000)
 			}
 		}
 	}
@@ -91,13 +100,21 @@
 		align-items: center;
 		justify-content: center;
 		background-color: #FFC300;
-		padding: 1rem;
+		padding: 1rem 1rem 0 1rem;
 	}
 	.messages {
 		width: 100%;
 		background-color: #DAF7A6;
 		padding: 1rem;
 		height: 80%;
+	}
+	.response-message {
+		width: 100%;
+		height: 20px;
+		margin-bottom: 1rem
+	}
+	.response-message p {
+		font-size: 14px;
 	}
 	ul {
 		list-style-type: none;
@@ -106,5 +123,10 @@
 	li {
 		display: inline-block;
 		margin: 0 10px;
+	}
+	@media only screen and (max-width: 400px) {
+		.response-message p {
+			font-size: 12px;
+		}
 	}
 </style>
