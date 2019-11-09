@@ -2,6 +2,11 @@
 import express from 'express'
 import { validate } from './validate'
 
+interface Messages {
+    email: string;
+    message: string;
+}
+
 (async () => {
 
     const app = express()
@@ -10,6 +15,8 @@ import { validate } from './validate'
     app.get('/', (_req, res) => {
         res.send('aaaaaa')
     })
+
+    let messages: Messages[] = []
 
     app.post('/api/contact', (req, res) => {
 
@@ -22,6 +29,15 @@ import { validate } from './validate'
 
             return
         }
+
+        const { email, message } = req.body
+
+        const newMessage = {
+            email,
+            message
+        }
+
+        messages = [...messages, newMessage]
 
         res.send({message: 'Your message has been sent'})
     })
