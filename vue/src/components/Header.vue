@@ -15,4 +15,15 @@
 </script>
 
 <style scoped>
+	.header {
+		padding: 2rem;
+		background-color: #FF5733
+	}
+	a {
+		text-decoration: none;
+		color: #2c3e50;
+	}
+	.router-link-active {
+		color: beige;
+	}
 </style>

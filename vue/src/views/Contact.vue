@@ -1,11 +1,11 @@
 <template>
-	<div class="contact">
-		<div>
-			<p>
-				Send something nice
-			</p>
-		</div>
-		<div>
+	<div class="content">
+		<div class="contact-form">
+			<div>
+				<h3>
+					Send something nice
+				</h3>
+			</div>
 			<SendContact
 				v-on:send-contact="sendContact"
 			/>
@@ -84,8 +84,22 @@
 </script>
 
 <style scoped>
-	h3 {
-		margin: 40px 0 0;
+	.content {
+		height: 100%;
+	}
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: #FFC300;
+		padding: 1rem;
+	}
+	.messages {
+		width: 100%;
+		background-color: #DAF7A6;
+		padding: 1rem;
+		height: 80%;
 	}
 	ul {
 		list-style-type: none;
@@ -94,8 +108,5 @@
 	li {
 		display: inline-block;
 		margin: 0 10px;
-	}
-	a {
-		color: #42b983;
 	}
 </style>

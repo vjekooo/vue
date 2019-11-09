@@ -1,8 +1,8 @@
 <template>
     <div>
-        <h1>
+        <h3>
             {{title}}
-        </h1>
+        </h3>
         <div>
             <ul
                 v-for="message in messages"
