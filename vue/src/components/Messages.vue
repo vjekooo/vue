@@ -1,0 +1,39 @@
+<template>
+    <div>
+        <h1>
+            {{title}}
+        </h1>
+        <div>
+            <ul
+                v-for="message in messages"
+                v-bind:key="message.id"
+                class="message-list"
+            >
+                <Message
+                    v-bind:message="message"
+                />
+            </ul>
+        </div>
+    </div>
+</template>
+
+<script>
+    import Message from "./Message.vue";
+
+    export default {
+        name: 'Messages',
+        components: {
+            Message
+        },
+        props: {
+            title: String,
+            messages: Array
+        }
+    }
+</script>
+
+<style scoped>
+    .message-list {
+        list-style-type: none;
+    }
+</style>

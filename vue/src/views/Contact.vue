@@ -10,16 +10,32 @@
 				v-on:send-contact="sendContact"
 			/>
 		</div>
+		<div class="messages">
+			<Messages v-bind:messages="messages" title="Sent messages" />
+		</div>
 	</div>
 </template>
 
 <script>
 	import SendContact from '../components/SendContact.vue'
+	import Messages from '../components/Messages.vue'
 
 	export default {
 		name: 'Contact',
 		components: {
-			SendContact
+			SendContact,
+			Messages
+		},
+		data() {
+			return {
+				messages: [
+					{
+						id: 1,
+						email: 'asasasas',
+						message: 'asasasasas'
+					}
+				]
+			}
 		},
 		methods: {
 			async sendContact(contact) {
@@ -39,7 +55,25 @@
 
 					const data = await response.json()
 
+					if (data) this.fetchMessages()
+
 					console.log(data)
+
+				} catch (error) {
+					console.log(error)
+				}
+			},
+			async fetchMessages() {
+				const api = 'http://localhost:4000/api/contacts'
+
+				try {
+					const response = await fetch(api)
+
+					const data = await response.json()
+
+					if (data) {
+						this.messages = [...this.messages, ...data]
+					}
 
 				} catch (error) {
 					console.log(error)

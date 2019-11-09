@@ -4,6 +4,7 @@ import cors from 'cors'
 import { validate } from './validate'
 
 interface Messages {
+    id: number;
     email: string;
     message: string;
 }
@@ -14,11 +15,12 @@ interface Messages {
     app.use(cors())
     app.use(express.json())
 
-    app.get('/', (_req, res) => {
-        res.send('aaaaaa')
-    })
-
+    
     let messages: Messages[] = []
+    
+    app.get('/api/contacts', (_req, res) => {
+        res.send(messages)
+    })
 
     app.post('/api/contact', (req, res) => {
 
@@ -35,6 +37,7 @@ interface Messages {
         const { email, message } = req.body
 
         const newMessage = {
+            id: Math.floor(Math.random() * 1000 - 1),
             email,
             message
         }
