@@ -15,7 +15,7 @@
 ## Startup
 
 ## Backend
-> yarn serve
+> yarn start
 
 ## Frontend
-> yarn start
+> yarn serve
