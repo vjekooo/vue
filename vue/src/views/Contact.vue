@@ -9,6 +9,9 @@
 			<SendContact
 				v-on:send-contact="sendContact"
 			/>
+			<div>
+				{{ responseMessage }}
+			</div>
 		</div>
 		<div class="messages">
 			<Messages v-bind:messages="messages" title="Sent messages" />
@@ -28,13 +31,8 @@
 		},
 		data() {
 			return {
-				messages: [
-					{
-						id: 1,
-						email: 'asasasas',
-						message: 'asasasasas'
-					}
-				]
+				messages: [],
+				responseMessage: '',
 			}
 		},
 		methods: {
@@ -55,9 +53,9 @@
 
 					const data = await response.json()
 
-					if (data) this.fetchMessages()
+					this.responseMessage = data.message || data.error
 
-					console.log(data)
+					if (!data.error) this.fetchMessages()
 
 				} catch (error) {
 					console.log(error)

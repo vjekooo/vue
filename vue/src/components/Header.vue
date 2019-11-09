@@ -2,8 +2,8 @@
 	<div class="header">
 		<h1>This is header</h1>
 		<nav class="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/contact">Contact</router-link>
+            <router-link to="/" exact >Home</router-link> |
+            <router-link to="/contact" exact >Contact</router-link>
         </nav>
 	</div>
 </template>

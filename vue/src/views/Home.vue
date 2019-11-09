@@ -1,8 +1,8 @@
 <template>
 	<div class="home">
-		<h1>Title</h1>
+		<h3>Title</h3>
 		<p>
-			Generic text
+			How much sand will the hand hold?
 		</p>
 	</div>
 </template>
@@ -14,18 +14,12 @@
 </script>
 
 <style scoped>
+	.home {
+		height: 100%;
+		background-color: #DAF7A6;
+		padding-top: 1rem;
+	}
 	h3 {
-		margin: 40px 0 0;
-	}
-	ul {
-		list-style-type: none;
-		padding: 0;
-	}
-	li {
-		display: inline-block;
-		margin: 0 10px;
-	}
-	a {
-		color: #42b983;
+		margin-bottom: 2rem;
 	}
 </style>

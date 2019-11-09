@@ -3,7 +3,7 @@
         <h3>
             {{title}}
         </h3>
-        <div>
+        <div class="messages">
             <ul
                 v-for="message in messages"
                 v-bind:key="message.id"
@@ -33,6 +33,9 @@
 </script>
 
 <style scoped>
+    .messages {
+        padding-top: 1rem;
+    }
     .message-list {
         list-style-type: none;
     }

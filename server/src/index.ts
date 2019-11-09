@@ -29,7 +29,9 @@ interface Messages {
         const { error } = validation
 
         if (error) {
-            res.status(422).send(error.details[0].message)
+            res.status(422).send({
+                error: error.details[0].message
+            })
 
             return
         }
@@ -44,7 +46,7 @@ interface Messages {
 
         messages = [...messages, newMessage]
 
-        res.send({message: 'Your message has been sent'})
+        res.send({success: 'Your message has been sent'})
     })
 
     const port = process.env.PORT || 4000

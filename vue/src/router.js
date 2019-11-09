@@ -16,5 +16,6 @@ export default new Router({
             name: 'contact',
             component: () => import(/* webpackChunkName: "contact" */ './views/Contact.vue')
         }
-    ]
+    ],
+    mode: 'history'
 })
