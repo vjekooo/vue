@@ -1,5 +1,6 @@
 
 import express from 'express'
+import { validate } from './validate'
 
 (async () => {
 
@@ -12,14 +13,16 @@ import express from 'express'
 
     app.post('/api/contact', (req, res) => {
 
-        const { email, message } = req.body
-        // Will validate properly a bit later
-        if (!email && !message) {
-            res.status(422).send('Error')
+        const validation = validate(req)
+
+        const { error } = validation
+
+        if (error) {
+            res.status(422).send(error.details[0].message)
 
             return
         }
-        
+
         res.send({message: 'Your message has been sent'})
     })
 
