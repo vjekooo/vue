@@ -5,7 +5,7 @@ import { Request } from 'express'
 export const validate = (req: Request) => {
     const schema = Joi.object({
         email: Joi.string().email().required(),
-        message: Joi.string().min(30).required(),
+        message: Joi.string().min(5).required(),
     })
 
     return schema.validate(req.body)
