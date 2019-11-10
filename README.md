@@ -15,12 +15,13 @@
 ## Startup
 
 ### Backend
-> yarn serve
-
-### Frontend
 > yarn start
+
+### Frontend - Vue cli
+> yarn serve
 
 ## Edit
 
 ### Frontend - custom webpack with vue and vuex
 > Had some more time so I edited my react webpack config for vue and also added vuex
+> yarn dev
